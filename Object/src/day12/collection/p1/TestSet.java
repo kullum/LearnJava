@@ -71,6 +71,37 @@ public class TestSet {
 		set4.add(new Person("MM",21));
 		set4.add(new Person("GG",23));
 		System.out.println(set4);
-		
+	}
+	@Test
+	public void treeSet2(){
+		Comparator com = new Comparator(){
+			@Override
+			public int compare(Object obj1, Object obj2) {
+				if(obj1 instanceof Employee && obj2 instanceof Employee){
+					Employee o1 = (Employee) obj1;
+					Employee o2 = (Employee) obj2;
+					if(o1.getName().equals(o2.getName())){
+						if(o1.getAge().equals(o2.getAge())){
+							return o1.getBirthday().compareTo(o2.getBirthday());
+						}else{
+							return o1.getAge().compareTo(o2.getAge());
+						}
+					}else{
+						return o1.getName().compareTo(o2.getName());
+					}
+				}
+				return 0;
+			}
+			
+		};
+		TreeSet set  = new TreeSet(com);
+		set.add(new Employee("刘德华",55,new MyDate(12,12,1965)));
+		set.add(new Employee("刘德华",56,new MyDate(13,12,1965)));
+		set.add(new Employee("刘德华",57,new MyDate(11,12,1965)));
+		set.add(new Employee("周润发",56,new MyDate(12,12,1964)));
+		System.out.println(set.size());
+		for(Object s:set){
+			System.out.println(s);
+		}
 	}
 }

@@ -1,6 +1,6 @@
 package day12.collection.p1;
 
-public class MyDate {
+public class MyDate implements Comparable{
 	private Integer year;
 	private Integer month;
 	private Integer day;
@@ -67,6 +67,21 @@ public class MyDate {
 		} else if (!year.equals(other.year))
 			return false;
 		return true;
+	}
+	@Override
+	public int compareTo(Object o) {
+		if(o instanceof MyDate){
+			MyDate obj = (MyDate) o;
+			if(this.year.equals(obj.year)){
+				if(this.month.equals(obj.month)){
+					return this.day.compareTo(obj.day);
+				}else{
+					return this.month.compareTo(obj.month);
+				}
+			}else
+				return this.year.compareTo(obj.year);
+		}
+		return 0;
 	}
 	
 }
