@@ -1,6 +1,6 @@
 package day12.collection.p1;
 
-public class Person {
+public class Person implements Comparable{
 	private String name;
 	private Integer age;
 	public String getName() {
@@ -52,6 +52,14 @@ public class Person {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+	@Override
+	public int compareTo(Object arg0) {
+		if(arg0 instanceof Person){
+			Person p = (Person) arg0;
+			return this.name.compareTo(p.name);
+		}
+		return 0;
 	}
 	
 	

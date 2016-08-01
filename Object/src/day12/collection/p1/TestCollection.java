@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 
 import org.junit.Test;
 
@@ -15,6 +16,7 @@ import org.junit.Test;
  * 
  * */
 public class TestCollection {
+
 	@Test
 	public void testCollection3(){
 		Collection coll = new ArrayList();
@@ -48,7 +50,13 @@ public class TestCollection {
 		}
 		Collection coll3 = Arrays.asList(obj);
 		System.out.println(coll3);
+
 		//14 iterator() : 返回一个Iterator接口实现类的对象，进而实现集合的遍历
+		System.out.println(coll);
+		System.out.println();
+		Iterator iterator = coll.iterator(); 
+		System.out.println(iterator.hasNext());
+		System.out.println(iterator.next());
 		
 	}
 	
