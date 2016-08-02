@@ -95,7 +95,6 @@ public class TestCollections {
 		System.out.println(list2);
 		Collections.replaceAll(list, "FF","GG");
 		System.out.println(list);
-		
 	}
 	/*
 	 * Collections类中提供了多个synchronizedXxx()方法，
