@@ -15,6 +15,19 @@ import org.junit.Test;
  * 4.通配符
  */
 public class TestGeneric {
+	@Test
+	public void testDAO(){
+		DAO<User> dao = new DAO<>(new HashMap<String,User>());
+		dao.save("AA", new User(1,21,"zhang3"));
+		dao.save("BB", new User(2,22,"li4"));
+		dao.save("CC", new User(3,23,"wang5"));
+		dao.save("BB", new User(2,25,"ma6"));
+		System.out.println(dao.get("BB"));
+		dao.update("BB", new User(4,25,"ma6"));
+		dao.delete("CC"); 
+		List<User> list = dao.list();
+		System.out.println(list);
+	}
 	/*
 	 * 通配符 ?
 	 * List<A>、List<B>......都是List<?>的子类
